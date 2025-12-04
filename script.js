@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             content: `
                 <div class="project-card">
                     <h3>Mega Man Star Force 3</h3>
-                    <p>A comprehensive and interactive fan-made website dedicated to the Nintendo DS classic. This project features a dynamic database of Games, and character bios, all presented in a modern, futuristic interface that pays homage to the game's aesthetic.</p>
+                    <p>A comprehensive and interactive fan-made website dedicated to the Nintendo DS classic. This project features details of Games, and character bios, all presented in a modern, futuristic interface that pays homage to the game's aesthetic.</p>
                     <a href="https://cipher95.github.io/Mega-Man-Star-Force-3/" target="_blank">View Project</a>
                 </div>
                  <div class="project-card">
@@ -27,12 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                  <div class="project-card">
                     <h3>Ace Combat Zero: The Belkan War</h3>
-                    <p>An immersive story-focused website that dives deep into the lore of Ace Combat Zero. It features an interactive map of Belka, detailed dossiers on legendary ace pilots, and a gallery of in-game aircraft, all woven together with a narrative-driven presentation.</p>
+                    <p>An immersive story-focused website that dives deep into the lore of Ace Combat Zero. It features detailed dossiers on legendary ace pilots, and a gallery of in-game aircraft, all woven together with a narrative-driven presentation.</p>
                     <a href="https://cipher95.github.io/Ace-Combat-Zero-The-Belkan-War/" target="_blank">View Project</a>
                 </div>
                  <div class="project-card">
                     <h3>MechWarrior 2: 31st Century Combat</h3>
-                    <p>A retro-themed tribute to the 1995 PC gaming titan. This site faithfully recreates the game's iconic 90s interface while providing a detailed database of Mechs, Clan information, and weapon systems. It even includes an embedded MIDI player with the classic soundtrack.</p>
+                    <p>A retro-themed tribute to the 1995 PC gaming titan. This site faithfully recreates the game's iconic 90s interface while providing a detailed information on Mechs, Clan information, and weapon systems. It even includes an embedded MIDI player with the classic soundtrack.</p>
                     <a href="https://cipher95.github.io/MechWarrior-2-31st-Century-Combat/" target="_blank">View Project</a>
                 </div>
 		<div class="project-card">
@@ -49,15 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Welcome to my collection of classic and retro game clips. This channel is dedicated to preserving gaming history, one moment at a time. Here are a few highlights:</p>
                 <br>
                 <div class="video-section">
-                    <h4>Highlight Clip 1 Title</h4>
+                    <h4>PS1 Emulator (DuckStation) - Air Combat [Hard] (Longplay)</h4>
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/your_video_id_1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/watch?v=_lPGVdE__tc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="video-section">
-                    <h4>Highlight Clip 2 Title</h4>
+                    <h4>PS1 Emulator (DuckStation) - Ace Combat 2 [Hard] (Longplay)</h4>
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/your_video_id_2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/watch?v=88CGhXFs5UA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             `
@@ -183,4 +183,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize the page
     initialize();
+
 });
