@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                  <div class="project-card">
                     <h3>MechWarrior 2: 31st Century Combat</h3>
-                    <p>A retro-themed tribute to the 1995 PC gaming titan. This site faithfully recreates the game's iconic 90s interface while providing a detailed information on Mechs, Clan information, and weapon systems. It even includes an embedded MIDI player with the classic soundtrack.</p>
+                    <p>A retro-themed tribute to the 1995 PC gaming titan. This site faithfully recreates the game's iconic 90s interface while providing detailed information on Mechs, Clan information, and weapon systems. It even includes an embedded MIDI player with the classic soundtrack.</p>
                     <a href="https://cipher95.github.io/MechWarrior-2-31st-Century-Combat/" target="_blank">View Project</a>
                 </div>
 		<div class="project-card">
@@ -185,4 +185,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initialize();
 
 });
+
 
