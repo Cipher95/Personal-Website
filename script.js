@@ -51,13 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="video-section">
                     <h4>PS1 Emulator (DuckStation) - Air Combat [Hard] (Longplay)</h4>
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/watch?v=_lPGVdE__tc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/_lPGVdE__tc?si=vfKSK361wA9joT4T" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="video-section">
                     <h4>PS1 Emulator (DuckStation) - Ace Combat 2 [Hard] (Longplay)</h4>
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/watch?v=88CGhXFs5UA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/88CGhXFs5UA?si=iYLLaIPWT3wXjSsr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             `
@@ -185,3 +185,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initialize();
 
 });
+
