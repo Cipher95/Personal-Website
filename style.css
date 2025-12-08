@@ -246,7 +246,38 @@ footer {
     background-color: var(--secondary-color);
     color: var(--primary-color);
 }
+/* --- NEW VIDEO NAVIGATION STYLES --- */
+.video-nav-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
 
+.video-nav-btn {
+    font-family: 'Orbitron', sans-serif;
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    color: var(--text-color);
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+.video-nav-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    box-shadow: 0 0 10px var(--glow-color);
+}
+
+.video-nav-btn.active {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border-color: var(--accent-color);
+    font-weight: bold;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -273,3 +304,4 @@ footer {
         max-width: 300px;
     }
 }
+
