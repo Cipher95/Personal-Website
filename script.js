@@ -42,25 +42,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `
         },
-        videos: {
+        
+		videos: {
             title: "Retro Gaming Archive",
-            image: "pexels-photo-735911.webp",
-            content: `
-                <p>Welcome to my collection of classic and retro game clips. This channel is dedicated to preserving gaming history, one moment at a time. Here are a few highlights:</p>
-                <br>
-                <div class="video-section">
-                    <h4>PS1 Emulator (DuckStation) - Air Combat [Hard] (Longplay)</h4>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/_lPGVdE__tc?si=vfKSK361wA9joT4T" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="video-section">
-                    <h4>PS1 Emulator (DuckStation) - Ace Combat 2 [Hard] (Longplay)</h4>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/88CGhXFs5UA?si=iYLLaIPWT3wXjSsr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </div>
-            `
+            image: "https://images.pexels.com/photos/735911/pexels-photo-735911.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            intro: `<p>Welcome to my collection of classic and retro game clips. This channel is dedicated to preserving gaming history, one moment at a time. Here are a few highlights:</p>`,
+            videoList: [
+                { title: "PS1 Emulator (DuckStation) - Air Combat [Hard] (Longplay)", videoId: "_lPGVdE__tc?si=vfKSK361wA9joT4T" },
+                { title: "PS1 Emulator (DuckStation) - Ace Combat 2 [Hard]", videoId: "88CGhXFs5UA?si=iYLLaIPWT3wXjSsr" },
+                { title: "PS1 Emulator (DuckStation) - Sidewinder 2 [Hard] (Longplay)", videoId: "bFZ-fx2ivsc?si=DCttmFGP7PLd2N8r" }
+            ]
         }
     };
 
@@ -71,7 +62,49 @@ document.addEventListener('DOMContentLoaded', () => {
     const dateDayElement = document.getElementById('date-day');
     const backToTopBtn = document.getElementById('back-to-top-btn');
 
-    // --- FUNCTIONS ---
+	 // --- FUNCTIONS ---
+
+    /**
+     * Builds and sets up the interactive video player.
+     * @param {object} videoData - The video data object from pageData.
+     */
+    function setupVideoPlayer(videoData) {
+        const videoDisplay = document.getElementById('video-display-area');
+        if (!videoDisplay || !videoData.videoList || videoData.videoList.length === 0) return;
+
+        // Create navigation buttons
+        const navButtonsHTML = videoData.videoList.map((video, index) =>
+            `<button class="video-nav-btn ${index === 0 ? 'active' : ''}" data-video-id="${video.videoId}">${video.title}</button>`
+        ).join('');
+
+        const firstVideoId = videoData.videoList[0].videoId;
+
+        // Create the full player HTML
+        const playerHTML = `
+            <div class="video-nav-container">
+                ${navButtonsHTML}
+            </div>
+            <div class="video-container">
+                <iframe id="youtube-player" src="https://www.youtube.com/embed/${firstVideoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        `;
+
+        videoDisplay.innerHTML = playerHTML;
+
+        // Add event listeners to the new buttons
+        const videoNavButtons = videoDisplay.querySelectorAll('.video-nav-btn');
+        videoNavButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const videoId = button.getAttribute('data-video-id');
+                const playerFrame = document.getElementById('youtube-player');
+                playerFrame.src = `https://www.youtube.com/embed/${videoId}`;
+
+                // Update active state
+                videoNavButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+    }
 
     /**
      * Switches the content displayed in the main area.
@@ -84,7 +117,14 @@ document.addEventListener('DOMContentLoaded', () => {
         contentArea.classList.add('fade-out');
 
         setTimeout(() => {
-            // Note: The 'content-wrapper' is used for layout consistency
+            let contentHTML;
+            // Special handling for the video page to include our dynamic area
+            if (pageKey === 'videos') {
+                contentHTML = `${data.intro}<div id="video-display-area"></div>`;
+            } else {
+                contentHTML = data.content;
+            }
+
             const html = `
                 <div class="content-wrapper">
                     <div class="content-image">
@@ -92,11 +132,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="content-text">
                         <h2>${data.title}</h2>
-                        ${data.content}
+                        ${contentHTML}
                     </div>
                 </div>
             `;
             contentArea.innerHTML = html;
+
+            // If it's the video page, initialize the player
+            if (pageKey === 'videos') {
+                setupVideoPlayer(data);
+            }
+
             contentArea.classList.remove('fade-out');
         }, 300);
     }
@@ -185,5 +231,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initialize();
 
 });
+
 
 
