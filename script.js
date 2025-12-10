@@ -49,8 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
             intro: `<p>Welcome to my collection of classic and retro game clips. This channel is dedicated to preserving gaming history, one moment at a time. Here are a few highlights:</p>`,
             videoList: [
                 { title: "PS1 Emulator (DuckStation) - Air Combat [Hard] (Longplay)", videoId: "_lPGVdE__tc?si=vfKSK361wA9joT4T" },
-                { title: "PS1 Emulator (DuckStation) - Ace Combat 2 [Hard]", videoId: "88CGhXFs5UA?si=iYLLaIPWT3wXjSsr" },
-                { title: "PS1 Emulator (DuckStation) - Sidewinder 2 [Hard] (Longplay)", videoId: "bFZ-fx2ivsc?si=DCttmFGP7PLd2N8r" }
+                { title: "PS1 Emulator (DuckStation) - Ace Combat 2 [Hard] (Longplay)", videoId: "88CGhXFs5UA?si=iYLLaIPWT3wXjSsr" },
+                { title: "PS1 Emulator (DuckStation) - Sidewinder 2 [Hard] (Longplay)", videoId: "bFZ-fx2ivsc?si=DCttmFGP7PLd2N8r" },
+				{ title: "PS1 Emulator (DuckStation) - Ace Combat 3: Electrosphere [Hard] (Part 1/5)", videoId: "mqsrsvp90mg?si=SWRh75DpKMfh41an" }
             ]
         }
     };
@@ -231,6 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initialize();
 
 });
+
 
 
 
