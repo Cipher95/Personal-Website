@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="https://cipher95.github.io/MechWarrior-2-31st-Century-Combat/" target="_blank">View Project</a>
                 </div>
 		<div class="project-card">
-                    <h3>MMSF3 Grand Tournament 2025</h3>
+                    <h3>MMSF3 Grand Tournament 2026</h3>
                     <p></p>
-                    <a href="https://cipher95.github.io/MMSF3-Grand-Tournament-2025/" target="_blank">View Project</a>
+                    <a href="https://cipher95.github.io/MMSF3-Grand-Tournament-2026/" target="_blank">View Project</a>
                 </div>
             `
         },
@@ -232,6 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initialize();
 
 });
+
 
 
 
