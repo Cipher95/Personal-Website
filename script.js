@@ -36,9 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="https://cipher95.github.io/MechWarrior-2-31st-Century-Combat/" target="_blank">View Project</a>
                 </div>
 		<div class="project-card">
-                    <h3>MMSF3 Grand Tournament 2026</h3>
+                    <h3>SF Clan & MMSF3 Grand Tournament 2026</h3>
                     <p></p>
-                    <a href="https://cipher95.github.io/MMSF3-Grand-Tournament-2026/" target="_blank">View Project</a>
+					<a href="https://cipher95.github.io/SF-Clan/" target="_blank">View First Project</a>
+                    <a href="https://cipher95.github.io/MMSF3-Grand-Tournament-2026/" target="_blank">View Second Project</a>
                 </div>
             `
         },
@@ -183,6 +184,66 @@ document.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth'
         });
     }
+	// --- CHATBOT FUNCTIONALITY ---
+    const chatbotToggleBtn = document.getElementById('chatbot-toggle-btn');
+    const chatbotPopup = document.getElementById('chatbot-popup');
+    const chatbotCloseBtn = document.getElementById('chatbot-close-btn');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+    const chatbotInput = document.getElementById('chatbot-input');
+    const chatbotSendBtn = document.getElementById('chatbot-send-btn');
+
+    chatbotToggleBtn.addEventListener('click', () => {
+        chatbotPopup.style.display = chatbotPopup.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    chatbotCloseBtn.addEventListener('click', () => {
+        chatbotPopup.style.display = 'none';
+    });
+
+    chatbotSendBtn.addEventListener('click', handleUserMessage);
+    chatbotInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            handleUserMessage();
+        }
+    });
+
+    function handleUserMessage() {
+        const message = chatbotInput.value.trim();
+        if (message) {
+            addMessage(message, 'user');
+            chatbotInput.value = '';
+            getBotResponse(message);
+        }
+    }
+
+    function addMessage(message, sender) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('chatbot-message', `${sender}-message`);
+        messageElement.textContent = message;
+        chatbotMessages.appendChild(messageElement);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    function getBotResponse(userMessage) {
+        const lowerCaseMessage = userMessage.toLowerCase();
+        let botMessage = "I'm not sure how to respond to that. Try asking about 'Cipher', 'websites', or 'videos'.";
+
+        if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi')) {
+            botMessage = "Hello! I'm CipherBot. How can I help you today?";
+        } else if (lowerCaseMessage.includes('cipher')) {
+            botMessage = "Cipher is a web developer and digital archivist, passionate about creating new web experiences and preserving classic video games.";
+        } else if (lowerCaseMessage.includes('website') || lowerCaseMessage.includes('project')) {
+            botMessage = "Cipher has worked on several projects, including websites for Mega Man Star Force, Ace Combat Zero, and MechWarrior 2. You can see them on the 'Websites' page.";
+        } else if (lowerCaseMessage.includes('video')) {
+            botMessage = "You can find a collection of retro gaming longplays and clips on the 'Videos' page.";
+        } else if (lowerCaseMessage.includes('thank')) {
+            botMessage = "You're welcome!";
+        }
+
+        setTimeout(() => {
+            addMessage(botMessage, 'bot');
+        }, 500);
+    }
 
     /**
      * Initializes the application.
@@ -232,6 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initialize();
 
 });
+
 
 
 
