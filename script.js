@@ -1,4 +1,4 @@
-﻿
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- DATA STORE ---
@@ -35,12 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>A retro-themed tribute to the 1995 PC gaming titan. This site faithfully recreates the game's iconic 90s interface while providing detailed information on Mechs, Clan information, and weapon systems. It even includes an embedded MIDI player with the classic soundtrack.</p>
                     <a href="https://cipher95.github.io/MechWarrior-2-31st-Century-Combat/" target="_blank">View Project</a>
                 </div>
-		<div class="project-card">
-                    <h3>SF Clan & MMSF3 Grand Tournament 2026</h3>
-                    <p></p>
-					<a href="https://cipher95.github.io/SF-Clan/" target="_blank">View First Project</a>
-                    <a href="https://cipher95.github.io/MMSF3-Grand-Tournament-2026/" target="_blank">View Second Project</a>
-                </div>
+		
             `
         },
         
@@ -184,7 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth'
         });
     }
-	// --- CHATBOT FUNCTIONALITY ---
+
+     // --- CHATBOT FUNCTIONALITY ---
     const chatbotToggleBtn = document.getElementById('chatbot-toggle-btn');
     const chatbotPopup = document.getElementById('chatbot-popup');
     const chatbotCloseBtn = document.getElementById('chatbot-close-btn');
@@ -192,18 +188,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatbotInput = document.getElementById('chatbot-input');
     const chatbotSendBtn = document.getElementById('chatbot-send-btn');
 
+    // **UPDATED**: Toggle the 'active' class to show/hide the popup with animation
     chatbotToggleBtn.addEventListener('click', () => {
-        chatbotPopup.style.display = chatbotPopup.style.display === 'flex' ? 'none' : 'flex';
-        // Add a welcome message if the chat is empty
-        if (chatbotMessages.children.length === 0) {
+        chatbotPopup.classList.toggle('active');
+        
+        // Add a welcome message only if the chat is empty and the popup is being opened
+        if (chatbotPopup.classList.contains('active') && chatbotMessages.children.length === 0) {
             setTimeout(() => {
                 addMessage("Hello! I'm CipherBot. You can ask me about Cipher, his projects, or the videos on this site.", 'bot');
-            }, 300);
+            }, 300); // Delay to allow the popup to animate in
         }
     });
 
+    // **UPDATED**: Remove the 'active' class to hide the popup
     chatbotCloseBtn.addEventListener('click', () => {
-        chatbotPopup.style.display = 'none';
+        chatbotPopup.classList.remove('active');
     });
 
     chatbotSendBtn.addEventListener('click', handleUserMessage);
@@ -271,6 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     }
 
+
     /**
      * Initializes the application.
      */
@@ -319,10 +319,3 @@ document.addEventListener('DOMContentLoaded', () => {
     initialize();
 
 });
-
-
-
-
-
-
-
