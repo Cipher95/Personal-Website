@@ -50,8 +50,28 @@
 
     <!-- Back to Top Button -->
     <button id="back-to-top-btn" title="Go to top">▲</button>
+    <!-- Chatbot Button -->
+    <button id="chatbot-toggle-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+        </svg>
+    </button>
+
+    <!-- Chatbot Popup -->
+    <div id="chatbot-popup">
+        <div id="chatbot-header">
+            <h2>CipherBot</h2>
+            <button id="chatbot-close-btn">&times;</button>
+        </div>
+        <div id="chatbot-messages"></div>
+        <div id="chatbot-input-container">
+            <input type="text" id="chatbot-input" placeholder="Ask me something...">
+            <button id="chatbot-send-btn">Send</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 
 </body>
 </html>
+
