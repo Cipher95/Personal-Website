@@ -194,6 +194,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     chatbotToggleBtn.addEventListener('click', () => {
         chatbotPopup.style.display = chatbotPopup.style.display === 'flex' ? 'none' : 'flex';
+        // Add a welcome message if the chat is empty
+        if (chatbotMessages.children.length === 0) {
+            setTimeout(() => {
+                addMessage("Hello! I'm CipherBot. You can ask me about Cipher, his projects, or the videos on this site.", 'bot');
+            }, 300);
+        }
     });
 
     chatbotCloseBtn.addEventListener('click', () => {
@@ -219,25 +225,45 @@ document.addEventListener('DOMContentLoaded', () => {
     function addMessage(message, sender) {
         const messageElement = document.createElement('div');
         messageElement.classList.add('chatbot-message', `${sender}-message`);
-        messageElement.textContent = message;
+        messageElement.innerHTML = message; // Use innerHTML to allow for links
         chatbotMessages.appendChild(messageElement);
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
 
     function getBotResponse(userMessage) {
         const lowerCaseMessage = userMessage.toLowerCase();
-        let botMessage = "I'm not sure how to respond to that. Try asking about 'Cipher', 'websites', or 'videos'.";
+        let botMessage;
 
         if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi')) {
             botMessage = "Hello! I'm CipherBot. How can I help you today?";
+        } else if (lowerCaseMessage.includes('your name')) {
+            botMessage = "You can call me CipherBot. I'm here to help you learn about this website.";
+        } else if (lowerCaseMessage.includes('how are you')) {
+            botMessage = "I'm a set of scripts and code, but I'm functioning perfectly! Thanks for asking. How can I assist you?";
+        } else if (lowerCaseMessage.includes('help') || lowerCaseMessage.includes('what can i ask')) {
+            botMessage = "You can ask me about Cipher, his web development projects, his video archives, or specific games like 'Mega Man' and 'Ace Combat'.";
         } else if (lowerCaseMessage.includes('cipher')) {
             botMessage = "Cipher is a web developer and digital archivist, passionate about creating new web experiences and preserving classic video games.";
+        } else if (lowerCaseMessage.includes('mega man')) {
+            botMessage = "Cipher has created two fan websites for the Mega Man Star Force series. You can find links to them on the 'Websites' page.";
+        } else if (lowerCaseMessage.includes('ace combat')) {
+            botMessage = "There's an immersive, story-focused website for 'Ace Combat Zero: The Belkan War' in the showcase. He also has longplays of several Ace Combat games in the 'Videos' section.";
+        } else if (lowerCaseMessage.includes('mechwarrior')) {
+            botMessage = "Yes, there is a retro-themed tribute site for 'MechWarrior 2: 31st Century Combat'. It even has the classic MIDI soundtrack!";
         } else if (lowerCaseMessage.includes('website') || lowerCaseMessage.includes('project')) {
-            botMessage = "Cipher has worked on several projects, including websites for Mega Man Star Force, Ace Combat Zero, and MechWarrior 2. You can see them on the 'Websites' page.";
+            botMessage = "Cipher has worked on several projects, including websites for Mega Man Star Force, Ace Combat Zero, and MechWarrior 2. You can navigate to the 'Websites' page to see them all.";
         } else if (lowerCaseMessage.includes('video')) {
-            botMessage = "You can find a collection of retro gaming longplays and clips on the 'Videos' page.";
+            botMessage = "You can find a collection of retro gaming longplays and clips on the 'Videos' page. The archive includes games like Air Combat, Ace Combat 2, and more.";
+        } else if (lowerCaseMessage.includes('skill') || lowerCaseMessage.includes('technolog')) {
+            botMessage = "Cipher specializes in front-end web development, creating dynamic and intelligent websites. The projects showcase skills in HTML, CSS, JavaScript, and UI/UX design.";
+        } else if (lowerCaseMessage.includes('contact') || lowerCaseMessage.includes('email')) {
+            botMessage = "I don't have access to Cipher's personal contact information. For now, the best way to see his work is by exploring this website.";
         } else if (lowerCaseMessage.includes('thank')) {
-            botMessage = "You're welcome!";
+            botMessage = "You're welcome! Let me know if there is anything else I can help with.";
+        } else if (lowerCaseMessage.includes('bye') || lowerCaseMessage.includes('goodbye')) {
+            botMessage = "Goodbye! Feel free to ask if you have more questions.";
+        } else {
+            botMessage = "I'm not sure how to respond to that. Try asking about 'Cipher', 'websites', 'videos', or 'help'.";
         }
 
         setTimeout(() => {
@@ -293,6 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initialize();
 
 });
+
 
 
 
