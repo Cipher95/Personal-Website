@@ -1,7 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- DATA STORE ---
+    // --- NEW: Added Gemini 2.5 Pro page data ---
     const pageData = {
         home: {
             title: "Welcome to My Personal Website",
@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		
             `
         },
-        
 		videos: {
             title: "Retro Gaming Archive",
             image: "https://images.pexels.com/photos/735911/pexels-photo-735911.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -49,6 +48,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 { title: "PS1 Emulator (DuckStation) - Sidewinder 2 [Hard] (Longplay)", videoId: "bFZ-fx2ivsc?si=DCttmFGP7PLd2N8r" },
 				{ title: "PS1 Emulator (DuckStation) - Ace Combat 3: Electrosphere [Hard] (Part 1/5)", videoId: "mqsrsvp90mg?si=SWRh75DpKMfh41an" }
             ]
+        },
+        // --- NEW ---
+        gemini: {
+            title: "Connect with Gemini 2.5 Pro",
+            image: "https://images.pexels.com/photos/8566472/pexels-photo-8566472.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", // A futuristic AI-themed image
+            content: `
+                <p>Interact directly with a powerful AI. Ask complex questions, get help with code, brainstorm ideas, or translate languages. This interface is connected to the Gemini 2.5 Pro model via a secure backend.</p>
+                <div id="gemini-container">
+                    <textarea id="gemini-prompt" placeholder="Enter your prompt for Gemini..."></textarea>
+                    <button id="gemini-submit-btn">Send to AI</button>
+                    <div id="gemini-response">The AI's response will appear here...</div>
+                </div>
+            `
         }
     };
 
@@ -229,6 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
 
+    // This is your original hard-coded chatbot. We will leave it as is.
     function getBotResponse(userMessage) {
         const lowerCaseMessage = userMessage.toLowerCase();
         let botMessage;
@@ -270,6 +283,51 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     }
 
+    // --- NEW: GEMINI 2.5 PRO API FUNCTIONALITY ---
+    async function handleGeminiPrompt() {
+        const promptInput = document.getElementById('gemini-prompt');
+        const responseContainer = document.getElementById('gemini-response');
+        const submitBtn = document.getElementById('gemini-submit-btn');
+
+        const prompt = promptInput.value.trim();
+        if (!prompt) {
+            responseContainer.textContent = "Please enter a prompt before sending.";
+            return;
+        }
+
+        // Disable button and show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = "THINKING...";
+        responseContainer.textContent = "Connecting to the AI, please wait...";
+
+        try {
+            // This fetch call goes to YOUR backend server, which then securely calls Google
+            const response = await fetch('/api/gemini', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ prompt: prompt }),
+            });
+
+            if (!response.ok) {
+                // This will catch errors returned from your server (e.g., status 500)
+                throw new Error(`Server error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            responseContainer.textContent = data.response;
+
+        } catch (error) {
+            console.error('Error fetching Gemini response:', error);
+            responseContainer.textContent = 'An error occurred. Please make sure the backend server is running and try again.';
+        } finally {
+            // Re-enable the button regardless of success or failure
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Send to AI";
+        }
+    }
+
 
     /**
      * Initializes the application.
@@ -302,6 +360,16 @@ document.addEventListener('DOMContentLoaded', () => {
             switchContent(page);
         });
     });
+
+    // --- NEW: Event listener for dynamically added Gemini button ---
+    // We use event delegation on the contentArea since the button doesn't exist on page load.
+    contentArea.addEventListener('click', (event) => {
+        // Check if the clicked element is our Gemini submit button
+        if (event.target.id === 'gemini-submit-btn') {
+            handleGeminiPrompt();
+        }
+    });
+
 
     // --- BACKGROUND MUSIC HANDLER ---
     const backgroundMusic = document.getElementById('bg-music');
