@@ -11,7 +11,7 @@ app.use(express.json());
 
 // Get the API key from environment variables
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`;
+const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-preview:generateContent?key=${GEMINI_API_KEY}`;
 
 // Define the API endpoint that the frontend will call
 app.post('/api/gemini', async (req, res) => {
