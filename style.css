@@ -424,7 +424,7 @@ footer {
     background-color: var(--accent-color);
 }
 
-/* --- NEW: GEMINI 2.5 PRO INTERFACE STYLES --- */
+/* --- NEW: GEMINI 1.5 PRO INTERFACE STYLES --- */
 #gemini-prompt {
     width: 100%;
     min-height: 100px;
@@ -524,3 +524,4 @@ footer {
         bottom: 85px;
     }
 }
+
