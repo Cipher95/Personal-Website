@@ -1,7 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- NEW: Added Gemini 2.5 Pro page data ---
+    // --- NEW: Added Gemini 1.5 Pro page data ---
     const pageData = {
         home: {
             title: "Welcome to My Personal Website",
@@ -51,10 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         // --- NEW ---
         gemini: {
-            title: "Connect with Gemini 2.5 Pro",
+            title: "Connect with Gemini 1.5 Pro",
             image: "https://images.pexels.com/photos/8566472/pexels-photo-8566472.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", // A futuristic AI-themed image
             content: `
-                <p>Interact directly with a powerful AI. Ask complex questions, get help with code, brainstorm ideas, or translate languages. This interface is connected to the Gemini 2.5 Pro model via a secure backend.</p>
+                <p>Interact directly with a powerful AI. Ask complex questions, get help with code, brainstorm ideas, or translate languages. This interface is connected to the Gemini 1.5 Pro model via a secure backend.</p>
                 <div id="gemini-container">
                     <textarea id="gemini-prompt" placeholder="Enter your prompt for Gemini..."></textarea>
                     <button id="gemini-submit-btn">Send to AI</button>
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     }
 
-    // --- NEW: GEMINI 2.5 PRO API FUNCTIONALITY ---
+    // --- NEW: GEMINI 1.5 PRO API FUNCTIONALITY ---
     async function handleGeminiPrompt() {
         const promptInput = document.getElementById('gemini-prompt');
         const responseContainer = document.getElementById('gemini-response');
@@ -387,3 +387,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initialize();
 
 });
+
