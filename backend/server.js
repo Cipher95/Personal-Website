@@ -1,10 +1,14 @@
 // Import necessary libraries
 const express = require('express');
 const fetch = require('node-fetch');
+const cors = require('cors'); // --- NEW ---
 require('dotenv').config(); // Loads environment variables from a .env file
 
 // Initialize the Express app
 const app = express();
+
+// --- NEW --- Add the CORS middleware
+app.use(cors());
 
 // Middleware to parse JSON bodies from incoming requests
 app.use(express.json());
