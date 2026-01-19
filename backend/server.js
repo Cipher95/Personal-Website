@@ -8,7 +8,9 @@ require('dotenv').config(); // Loads environment variables from a .env file
 const app = express();
 
 // --- NEW --- Add the CORS middleware
-app.use(cors());
+app.use(cors({
+	origin: "*"
+}));
 
 // Middleware to parse JSON bodies from incoming requests
 app.use(express.json());
