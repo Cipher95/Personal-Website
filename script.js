@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // This fetch call goes to YOUR backend server, which then securely calls Google
-            const response = await fetch('https://954927c1-6f5f-4500-a6c4-b6c653965ac8-00-2f1g5gu0csdjw.pike.replit.dev/', {
+            const response = await fetch('https://954927c1-6f5f-4500-a6c4-b6c653965ac8-00-2f1g5gu0csdjw.pike.replit.dev/api/gemini', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -387,5 +387,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initialize();
 
 });
+
 
 
