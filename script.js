@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- NEW ---
         gemini: {
             title: "Connect with Gemini 1.5 Flash",
-            image: "https://images.pexels.com/photos/8566472/pexels-photo-8566472.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", // A futuristic AI-themed image
+            image: "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/f4a855188450701.65b6d6903dc33.png", // A futuristic AI-themed image
             content: `
                 <p>Interact directly with a powerful AI. Ask complex questions, get help with code, brainstorm ideas, or translate languages. This interface is connected to the Gemini 1.5 Flash model via a secure backend.</p>
                 <div id="gemini-container">
@@ -387,6 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initialize();
 
 });
+
 
 
 
