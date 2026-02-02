@@ -2,6 +2,7 @@
 const express = require('express');
 const fetch = require('node-fetch');
 const cors = require('cors'); // --- NEW ---
+const keep_alive = require('./keep_alive.js');
 require('dotenv').config(); // Loads environment variables from a .env file
 
 // Initialize the Express app
