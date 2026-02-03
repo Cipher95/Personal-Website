@@ -2,7 +2,6 @@
 const express = require('express');
 const fetch = require('node-fetch');
 const cors = require('cors'); // --- NEW ---
-const keep_alive = require('./keep_alive.js');
 require('dotenv').config(); // Loads environment variables from a .env file
 
 // Initialize the Express app
@@ -15,6 +14,11 @@ app.use(cors({
 
 // Middleware to parse JSON bodies from incoming requests
 app.use(express.json());
+
+// --- NEW: Keep-alive route for UptimeRobot ---
+app.get('/', (req, res) => {
+  res.send("I'm alive and ready to receive pings!");
+});
 
 // Get the API key from environment variables
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
