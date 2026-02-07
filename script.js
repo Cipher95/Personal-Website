@@ -35,7 +35,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>A retro-themed tribute to the 1995 PC gaming titan. This site faithfully recreates the game's iconic 90s interface while providing detailed information on Mechs, Clan information, and weapon systems. It even includes an embedded MIDI player with the classic soundtrack.</p>
                     <a href="https://cipher95.github.io/MechWarrior-2-31st-Century-Combat/" target="_blank">View Project</a>
                 </div>
-		
+				<div class="project-card">
+                    <h3>Cipher SF | Personal Website</h3>
+                    <p>This is my second Personal Website.</p>
+                    <a href="https://cipher95.github.io/Personal-Website-vMMSF-P/" target="_blank">View Project</a>
+                </div>
+				<div class="project-card">
+                    <h3>SF Clan | Star Force</h3>
+                    <p>A fellowship of gamers dedicated to mastering the classics.</p>
+                    <a href="https://cipher95.github.io/SF-Clan/" target="_blank">View Project</a>
+                </div>
             `
         },
 		videos: {
@@ -387,6 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initialize();
 
 });
+
 
 
 
