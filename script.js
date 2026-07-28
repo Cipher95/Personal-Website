@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				<div class="project-card">
                     <h3>Cipher SF | Personal Website</h3>
                     <p>This is my second Personal Website.</p>
-                    <a href="https://cipher95.github.io/Personal-Website-vMMSF-P/" target="_blank">View Project</a>
+                    <a href="https://cipher-personal.infinityfree.io/" target="_blank">View Project</a>
                 </div>
 				<div class="project-card">
                     <h3>SF Clan | Star Force</h3>
