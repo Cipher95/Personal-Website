@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Connect with AI Agent",
             image: "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/f4a855188450701.65b6d6903dc33.png", 
             content: `
-                <p>Interact directly with my custom AI Agent, powered by Google's Gemini 1.5 Flash model. It has been specially equipped with knowledge about my background, web development projects, and retro gaming archives. Ask it questions about my work, request coding assistance, brainstorm ideas, or just have a chat with a highly intelligent assistant!</p>
+                <p>Interact directly with my custom AI Agent, powered by Google's Gemini 3.5 Flash model. It has been specially equipped with knowledge about my background, web development projects, and retro gaming archives. Ask it questions about my work, request coding assistance, brainstorm ideas, or just have a chat with a highly intelligent assistant!</p>
                 <div id="gemini-container">
                     <textarea id="gemini-prompt" placeholder="Enter your prompt for the AI Agent..."></textarea>
                     <button id="gemini-submit-btn">Send to AI</button>
