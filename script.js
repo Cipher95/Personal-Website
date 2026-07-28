@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Fetch URL pointing to your hosted InfinityFree server
-            const response = await fetch('https://google-gemini.infinityfree.io/gemini_api.php', {
+            const response = await fetch('https://cipher.infinityfree.io/gemini_api.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
